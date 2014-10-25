@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A7E36D2C-08C7-489D-854C-BC4622717C79</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LEOPROJECTS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BCADCD8D0BD436E1514A67A4CE365720FB8D69FC</key>
+		<string>https://github.com/killerhis/StackTower.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LEOPROJECTS.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BCADCD8D0BD436E1514A67A4CE365720FB8D69FC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/killerhis/StackTower.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BCADCD8D0BD436E1514A67A4CE365720FB8D69FC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BCADCD8D0BD436E1514A67A4CE365720FB8D69FC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Tower</string>
+		</dict>
+	</array>
+</dict>
+</plist>
