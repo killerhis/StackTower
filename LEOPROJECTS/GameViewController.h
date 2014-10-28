@@ -9,15 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <GameKit/GameKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import <iAd/iAd.h>
-
 
 #import "GADBannerView.h"
 #import "GADRequest.h"
 @class GADBannerView;
 @class GADRequest;
 
-@interface GameViewController : UIViewController<ADBannerViewDelegate,GADBannerViewDelegate>
+@interface GameViewController : UIViewController <GADBannerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *GameOverView;
 - (IBAction)PlayIt;
 - (IBAction)CloseIt;
@@ -26,7 +24,8 @@
 
 - (GADRequest *)request;
 
-@property (weak, nonatomic) IBOutlet ADBannerView *iAdBannerView;
+//@property (weak, nonatomic) IBOutlet ADBannerView *iAdBannerView;
 
 @property (weak, nonatomic) IBOutlet UILabel *ScoreText;
+
 @end

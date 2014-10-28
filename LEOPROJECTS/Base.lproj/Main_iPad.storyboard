@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,7 +18,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0op-iC-ViM">
-                                <rect key="frame" x="499" y="793" width="133" height="133"/>
+                                <rect key="frame" x="499" y="802" width="133" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <state key="normal" backgroundImage="gameCenter_iPad.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,12 +27,8 @@
                                     <action selector="openGameCenter" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gwf-Ix-j41"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="copyrightText.png" id="fDl-6R-pvG">
-                                <rect key="frame" x="310" y="982" width="147" height="14"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3c8-Ys-T5r">
-                                <rect key="frame" x="135" y="793" width="133" height="133"/>
+                                <rect key="frame" x="135" y="802" width="133" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <state key="normal" backgroundImage="soundButton_iPad.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YZz-59-9b3">
-                                <rect key="frame" x="269" y="575" width="213" height="213"/>
+                                <rect key="frame" x="274" y="575" width="213" height="213"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <state key="normal" backgroundImage="playButton_iPad.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -54,6 +51,7 @@
                                 <rect key="frame" x="169" y="232" width="423" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.97070633047786448" green="1" blue="0.47320334528672714" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo_iPad.png" id="12Y-A6-gei">
@@ -71,7 +69,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uua-uy-XJB">
-                                <rect key="frame" x="314" y="420" width="133" height="133"/>
+                                <rect key="frame" x="314" y="421" width="133" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <state key="normal" backgroundImage="rateButton_iPad.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,17 +104,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PHi-1r-JK0">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PHi-1r-JK0">
                                 <rect key="frame" x="180" y="102" width="408" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qb0-Wq-Pb4">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qb0-Wq-Pb4">
                                 <rect key="frame" x="180" y="237" width="408" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                <color key="textColor" red="0.39760954483695654" green="0.39760954483695654" blue="0.39760954483695654" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wZ3-AO-o57">
@@ -184,6 +183,7 @@
                                 <rect key="frame" x="317" y="25" width="134" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" id="5wW-KN-gDc">
@@ -227,13 +227,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" id="g2H-3k-r87">
-                                <rect key="frame" x="0.0" y="958" width="768" height="66"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="xw8-FZ-BfA" id="n7h-6X-i2D"/>
-                                </connections>
-                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -241,7 +234,6 @@
                     <connections>
                         <outlet property="GameOverView" destination="5wW-KN-gDc" id="erj-wu-Afr"/>
                         <outlet property="ScoreText" destination="Mvm-b1-KhP" id="5eU-jP-amF"/>
-                        <outlet property="iAdBannerView" destination="g2H-3k-r87" id="Dta-M0-qJ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDf-cP-7As" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -253,16 +245,15 @@
         <image name="AdsButton_iPad.png" width="184" height="184"/>
         <image name="backButton.png" width="191" height="104"/>
         <image name="backgroundGameScene_iPad.png" width="768" height="1024"/>
-        <image name="buyButton_iPad.png" width="220" height="220"/>
+        <image name="buyButton_iPad.png" width="265" height="265"/>
         <image name="closeButtonSmall.png" width="46" height="47"/>
-        <image name="copyrightText.png" width="147" height="14"/>
         <image name="gameCenter_iPad.png" width="160" height="160"/>
         <image name="gameOverBoard.png" width="276" height="234"/>
-        <image name="logo_iPad.png" width="493" height="154"/>
+        <image name="logo_iPad.png" width="494" height="154"/>
         <image name="playButtonSmall.png" width="46" height="47"/>
         <image name="playButton_iPad.png" width="312" height="312"/>
         <image name="rateButton_iPad.png" width="178" height="178"/>
-        <image name="restoreButton_iPad.png" width="220" height="220"/>
+        <image name="restoreButton_iPad.png" width="221" height="221"/>
         <image name="shareButton.png" width="46" height="47"/>
         <image name="soundButton_iPad.png" width="160" height="160"/>
     </resources>

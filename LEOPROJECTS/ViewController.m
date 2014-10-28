@@ -24,13 +24,19 @@ bool firstOne = YES;
 {
     [super viewDidLoad];
     
-   Helper * DataBaseHelper = [[Helper alloc] init];
+    // GA
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"StartScene"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    tracker.allowIDFACollection = NO;
+    
+    Helper * DataBaseHelper = [[Helper alloc] init];
     [DataBaseHelper makeFileWithName:@"settings.plist" andWriteToIt:[DataBaseHelper settings]];
 
         if ( IS_IPAD)
         {
             NSLog(@"an iPad Deviced has been detected");
-                        [_score setFont:[UIFont fontWithName:@"Mousou Record__G" size:80]];
+                        [_score setFont:[UIFont fontWithName:@"Minecrafter" size:80]];
             
             
         } else
@@ -38,7 +44,7 @@ bool firstOne = YES;
             NSLog(@"an iPhone/iPod Deviced has been detected");
             
             
-                      [_score setFont:[UIFont fontWithName:@"Mousou Record__G" size:30]];
+                      [_score setFont:[UIFont fontWithName:@"Minecrafter" size:30]];
         }
 
     

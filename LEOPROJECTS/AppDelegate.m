@@ -10,6 +10,8 @@
 #import "Chartboost.h"
 #import "CBNewsfeed.h"
 #import "defined.h"
+#import <FacebookSDK/FacebookSDK.h>
+
 @interface AppDelegate () <ChartboostDelegate, CBNewsfeedDelegate>
 @end
 @implementation AppDelegate
@@ -18,8 +20,7 @@
 {
     // Override point for customization after application launch.
     
-    [self LoginToGameCenter_iOS_7_forth_way];
-
+    
     return YES;
 }
 
@@ -83,6 +84,19 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    // Monitor FB App installs
+    [FBSettings setDefaultAppID:@"308502969347316"];
+    [FBAppEvents activateApp];
+    
+    // GA Setup
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
+    [GAI sharedInstance].dispatchInterval = 20;
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-54104285-9"];
+    
+    [self LoginToGameCenter_iOS_7_forth_way];
+    
+    
     [Chartboost startWithAppId:k_chartboost_id appSignature:k_chartboost_sign delegate:self];
     
     

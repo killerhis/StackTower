@@ -23,6 +23,8 @@
 #import "CBPostInstallAnalyticsTracker.h"
 
 AVAudioPlayer  *SpectacularAudio;
+AVAudioPlayer  *BrickAudio;
+AVAudioPlayer  *MainAudio;
 
 @interface GameViewController ()
 @property ( nonatomic , strong )  id displayLink;
@@ -74,7 +76,7 @@ AVAudioPlayer  *SpectacularAudio;
         _defaultBlockName = @"defBlock_iPad";
         _movingBlockName = @"block_iPad";
         _iPadMulti = 2;
-        [_ScoreText setFont:[UIFont fontWithName:@"Mousou Record__G" size:80]];
+        [_ScoreText setFont:[UIFont fontWithName:@"Minecrafter" size:80]];
         
         _deviceType = @"iPad";
         
@@ -86,7 +88,7 @@ AVAudioPlayer  *SpectacularAudio;
         
         _vx = 0;
         _vy = 0;
-        _friction = 0.94;
+        _friction = 0.95;
         _power = 1.5;
         _score = 0;
         _iPadMulti = 1;
@@ -95,7 +97,7 @@ AVAudioPlayer  *SpectacularAudio;
         _defaultBlockName = @"defBlock_iPhone";
         _movingBlockName = @"block_iPhone";
         
-        [_ScoreText setFont:[UIFont fontWithName:@"Mousou Record__G" size:30]];
+        [_ScoreText setFont:[UIFont fontWithName:@"Minecrafter" size:30]];
         _deviceType = @"iPhone";
         
         _typeOfBlock = NO;
@@ -109,6 +111,14 @@ AVAudioPlayer  *SpectacularAudio;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // GA
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"GameScene"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    tracker.allowIDFACollection = NO;
+    
     [self checkDeviceTypeIsiPadOrIphone];
     srand( (unsigned int) time(NULL) );
     
@@ -150,7 +160,7 @@ AVAudioPlayer  *SpectacularAudio;
         NSLog(@"there is ADS =  %i",status);
         [self adMobSetup];
         [self.adBanner setHidden:NO];
-        [_iAdBannerView setHidden:YES];
+        //[_iAdBannerView setHidden:YES];
     }
     
     if ( _allowedToStart)
@@ -177,7 +187,7 @@ AVAudioPlayer  *SpectacularAudio;
     
     [default_Block setTag:1];
     
-    UIImageView *Moving_Block = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200 * _iPadMulti, 30*_iPadMulti)];
+    UIImageView *Moving_Block = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 171 * _iPadMulti, 30*_iPadMulti)];
     [Moving_Block setCenter:CGPointMake(default_Block.center.x  ,  default_Block.center.y - default_Block.frame.size.height/2 - (Moving_Block.frame.size.height/2))];
     [self.view addSubview:Moving_Block];
     
@@ -216,6 +226,11 @@ AVAudioPlayer  *SpectacularAudio;
     UIImageView *one = [_collection lastObject];
     
     UIImageView *sec = [_collection firstObject];
+    
+    
+    if ( one.frame.size.width < 4*_iPadMulti) {
+        [self GameOver];
+    }
     
     
     if ( sec.center.x < one.center.x)
@@ -265,20 +280,16 @@ AVAudioPlayer  *SpectacularAudio;
     _vx *= _friction;
     
     one.center = CGPointMake(one.center.x + _power, one.center.y );
-    
-    if ( one.frame.size.width < 10*_iPadMulti)
-    {
-        [self GameOver];
-        
-    }
-    
-    
-    
-    
+
 }
 
 -(void) ResetEveryThings
 {
+    // GA
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"GameScene"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    tracker.allowIDFACollection = NO;
     
     UIImageView *one = [_collection lastObject];
     
@@ -329,7 +340,7 @@ AVAudioPlayer  *SpectacularAudio;
     if (! status)
     {
         
-        [_iAdBannerView setHidden:YES];
+        //[_iAdBannerView setHidden:YES];
         [self.adBanner setHidden:NO];
         [self.adBanner bringToFront];
         
@@ -337,10 +348,22 @@ AVAudioPlayer  *SpectacularAudio;
     }
     [_GameOverView setHidden:YES];
     
+    if ( _allowedToStart)
+    {
+        [self startLoop];
+        _allowedToStart = !_allowedToStart;
+    }
+    
 }
 
 -(void) GameOver
 {
+    // GA
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"GameOverScene"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    tracker.allowIDFACollection = NO;
+    
     [_displayLink invalidate];
     [_GameOverView setHidden:NO];
     [_GameOverView bringToFront];
@@ -365,9 +388,10 @@ AVAudioPlayer  *SpectacularAudio;
     {
         [[Chartboost sharedChartboost] showInterstitial:CBLocationHomeScreen];
         
-        [_iAdBannerView bringToFront];
-        [_iAdBannerView setHidden:NO];
-        [self.adBanner setHidden:YES];
+        //[_iAdBannerView bringToFront];
+        //[_iAdBannerView setHidden:NO];
+        //[self.adBanner setHidden:YES];
+        [self.adBanner setHidden:NO];
         
         
     }
@@ -394,7 +418,7 @@ AVAudioPlayer  *SpectacularAudio;
     [self.adBanner bringToFront];
     _upNow = YES;
     
-    if ( _HasItSound) {    [_pop play];}
+    //if ( _HasItSound) {    [_pop play];}
     
     if (_GameOverView.hidden == YES)
     {
@@ -575,24 +599,27 @@ AVAudioPlayer  *SpectacularAudio;
             NSLog(@"Spectacular");
             
             UIImageView *tt = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"spectacular_%@",_deviceType]]];
+            tt.alpha = 0.0;
             [self.view addSubview:tt];
-            [tt setCenter:CGPointMake(MAIN_WIDTH/2, -200)];
+            //[tt setCenter:CGPointMake(MAIN_WIDTH/2, -200)];
+            [tt setCenter:CGPointMake(MAIN_WIDTH/2, (tt.frame.size.height*2))];
             
             [self playSpectacularAudio];
             
-            [UIView animateWithDuration:.5  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
+            [UIView animateWithDuration:.1  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
              {
                  
-                 [tt setCenter:CGPointMake(tt.center.x , (tt.frame.size.height*2) )];
+                 //[tt setCenter:CGPointMake(tt.center.x , (tt.frame.size.height*2) )];
+                 tt.alpha = 1.0;
                  
              }
                              completion:^(BOOL finished){
                                  
                                  
-                                 [UIView animateWithDuration:.5  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
+                                 [UIView animateWithDuration:.9  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
                                   {
-                                      
-                                      [tt setCenter:CGPointMake(tt.center.x , -(tt.frame.size.height*2) )];
+                                      tt.alpha = 0.0;
+                                      //[tt setCenter:CGPointMake(tt.center.x , -(tt.frame.size.height*2) )];
                                       
                                   }
                                                   completion:^(BOOL finished){
@@ -610,23 +637,26 @@ AVAudioPlayer  *SpectacularAudio;
         } else if ( img.frame.size.width <= 20 && img.frame.size.width >= 6)
         {
             UIImageView *tt = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"amazing_%@",_deviceType]]];
+            tt.alpha = 0.0;
             [self.view addSubview:tt];
-            [tt setCenter:CGPointMake(MAIN_WIDTH/2, -200)];
+            //[tt setCenter:CGPointMake(MAIN_WIDTH/2, -200)];
+            [tt setCenter:CGPointMake(MAIN_WIDTH/2, (tt.frame.size.height*2))];
             
+            [self playBrickAudio];
             
-            [UIView animateWithDuration:.5  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
+            [UIView animateWithDuration:.1  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
              {
-                 
-                 [tt setCenter:CGPointMake(tt.center.x , (tt.frame.size.height*2) )];
+                 tt.alpha = 1.0;
+                 //[tt setCenter:CGPointMake(tt.center.x , (tt.frame.size.height*2) )];
                  
              }
                              completion:^(BOOL finished){
                                  
                                  
-                                 [UIView animateWithDuration:.5  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
+                                 [UIView animateWithDuration:.9  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
                                   {
-                                      
-                                      [tt setCenter:CGPointMake(tt.center.x , -(tt.frame.size.height*2) )];
+                                      tt.alpha = 0.0;
+                                      //[tt setCenter:CGPointMake(tt.center.x , -(tt.frame.size.height*2) )];
                                       
                                   }
                                                   completion:^(BOOL finished){
@@ -641,24 +671,26 @@ AVAudioPlayer  *SpectacularAudio;
         }else if ( img.frame.size.width <= 30 && img.frame.size.width >= 21)
         {
             UIImageView *tt = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"good_%@",_deviceType]]];
+            tt.alpha = 0.0;
             [self.view addSubview:tt];
-            [tt setCenter:CGPointMake(MAIN_WIDTH/2, -200)];
+            //[tt setCenter:CGPointMake(MAIN_WIDTH/2, -200)];
+            [tt setCenter:CGPointMake(MAIN_WIDTH/2, (tt.frame.size.height*2))];
             
+            [self playBrickAudio];
             
-            
-            [UIView animateWithDuration:.5  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
+            [UIView animateWithDuration:.1  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
              {
-                 
-                 [tt setCenter:CGPointMake(tt.center.x , (tt.frame.size.height*2) )];
+                 tt.alpha = 1.0;
+                 //[tt setCenter:CGPointMake(tt.center.x , (tt.frame.size.height*2) )];
                  
              }
                              completion:^(BOOL finished){
                                  
                                  
-                                 [UIView animateWithDuration:.5  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
+                                 [UIView animateWithDuration:.9  delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^
                                   {
-                                      
-                                      [tt setCenter:CGPointMake(tt.center.x , -(tt.frame.size.height*2) )];
+                                      tt.alpha = 0.0;
+                                      //[tt setCenter:CGPointMake(tt.center.x , -(tt.frame.size.height*2) )];
                                       
                                   }
                                                   completion:^(BOOL finished){
@@ -670,6 +702,8 @@ AVAudioPlayer  *SpectacularAudio;
                                  
                              }];
             
+        } else {
+            [self playBrickAudio];
         }
         
     }
@@ -827,43 +861,33 @@ AVAudioPlayer  *SpectacularAudio;
     }
 }
 
--(void)bannerView:(ADBannerView *)banner
-didFailToReceiveAdWithError:(NSError *)error{
-    NSLog(@"Error in Loading Banner!");
-}
-
--(void)bannerViewDidLoadAd:(ADBannerView *)banner{
-    NSLog(@"iAd banner Loaded Successfully!");
-    Helper *hlp = [[Helper alloc] init];
-    BOOL status = [[hlp getStringFromFile:@"settings.plist" What:@"ADS"] boolValue];
-    if (! status)
-    {
-        [banner setAlpha:1];
-        [banner bringToFront];
-        
-        NSLog(@"the game has ADS");
-    }
-    
-    
-}
--(void)bannerViewWillLoadAd:(ADBannerView *)banner{
-    NSLog(@"iAd Banner will load!");
-}
--(void)bannerViewActionDidFinish:(ADBannerView *)banner{
-    NSLog(@"iAd Banner did finish");
-    
-}
-
 - (IBAction)rateIt {
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:k_OPEN_LINK_FOR_RATING]];
 }
 
+- (void)playBrickAudio
+{
+    NSLog(@"*** PLAY BRICK SOUND ***");
+    
+    if (_HasItSound) {
+        NSInteger number = [self getRandomNumberBetween:1 maxNumber:3];
+        NSString *soundFileName = [NSString stringWithFormat:@"brick%li", (long)number];
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:soundFileName ofType:@"mp3"];
+        
+        BrickAudio =[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
+        
+        [BrickAudio.delegate self];
+        [BrickAudio play];
+    }
+}
+
 - (void)playSpectacularAudio
 {
     if (_HasItSound) {
-        NSInteger number = [self getRandomNumberBetween:1 maxNumber:3];
-        NSString *soundFileName = [NSString stringWithFormat:@"sound%i", number];
+        NSInteger number = [self getRandomNumberBetween:1 maxNumber:4];
+        NSString *soundFileName = [NSString stringWithFormat:@"sound%li", (long)number];
         
         NSString *path = [[NSBundle mainBundle] pathForResource:soundFileName ofType:@"mp3"];
         
@@ -876,12 +900,12 @@ didFailToReceiveAdWithError:(NSError *)error{
 
 - (void)nextLevel
 {
-    if (_score % 5 == 0) {
+    if (_score % 4 == 0) {
         
         if (_power >= 0) {
-            _power = _power + (0.25*_iPadMulti);
+            _power = _power + (0.3*_iPadMulti);
         } else {
-            _power = _power - (0.25*_iPadMulti);
+            _power = _power - (0.3*_iPadMulti);
         }
         
     }
