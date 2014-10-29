@@ -66,10 +66,15 @@ AVAudioPlayer  *MainAudio;
     {
         NSLog(@"an iPad Deviced has been detected");
         
+        if ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 2.0)) {
+            _power = 6;
+        } else {
+            _power = 3;
+        }
+        
         _vx = 0;
         _vy = 0;
         _friction = 0.95;
-        _power = 3;
         _score = 0;
         _allowedToStart = YES;
         
@@ -81,15 +86,21 @@ AVAudioPlayer  *MainAudio;
         _deviceType = @"iPad";
         
         _typeOfBlock = NO;
+        
     } else
     {
         NSLog(@"an iPhone/iPod Deviced has been detected");
         
+        if ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 3.0)) {
+            _power = 2.5;
+            NSLog(@"** SCALE 3");
+        } else {
+            _power = 1.5;
+        }
         
         _vx = 0;
         _vy = 0;
         _friction = 0.95;
-        _power = 1.5;
         _score = 0;
         _iPadMulti = 1;
         

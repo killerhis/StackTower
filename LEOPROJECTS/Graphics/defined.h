@@ -18,6 +18,6 @@
 #define k_chartboost_sign @"fb713b5a01bab4968fbdeffea2af9c8029285565"
 
 
-#define k_OPEN_LINK_FOR_RATING @"itms-apps://itunes.apple.com/app/id933561255" // write you itunes connect link
+#define k_OPEN_LINK_FOR_RATING @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=933561255&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8" // write you itunes connect link 914341103
 
 

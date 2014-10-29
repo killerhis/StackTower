@@ -154,6 +154,8 @@ bool firstOne = YES;
     return UIInterfaceOrientationMaskPortrait;
 }
 - (IBAction)rateIt {
+    NSLog(@"rate it");
+    
      [[UIApplication sharedApplication] openURL:[NSURL URLWithString:k_OPEN_LINK_FOR_RATING]];
 }
 @end
