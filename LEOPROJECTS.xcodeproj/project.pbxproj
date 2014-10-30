@@ -41,6 +41,10 @@
 		452D0E2D19FEAC1100EEACE0 /* firecommand_splashscreen-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 452D0E2719FEAC1100EEACE0 /* firecommand_splashscreen-iphone.png */; };
 		452D0E2E19FEAC1100EEACE0 /* firecommand_splashscreen-iphone_r4.png in Resources */ = {isa = PBXBuildFile; fileRef = 452D0E2819FEAC1100EEACE0 /* firecommand_splashscreen-iphone_r4.png */; };
 		452D0E3019FEB2A700EEACE0 /* Minecrafter.Reg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 452D0E2F19FEB2A700EEACE0 /* Minecrafter.Reg.ttf */; };
+		456362921A019E82002919D3 /* tower_40pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 4563628F1A019E82002919D3 /* tower_40pt.png */; };
+		456362931A019E82002919D3 /* tower_76pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 456362901A019E82002919D3 /* tower_76pt.png */; };
+		456362941A019E82002919D3 /* tower_76pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 456362911A019E82002919D3 /* tower_76pt@2x.png */; };
+		456362961A019EDE002919D3 /* tower_29pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 456362951A019EDE002919D3 /* tower_29pt.png */; };
 		457E0DD419FFF89800E432A0 /* logo_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 457E0DD219FFF89800E432A0 /* logo_iPad.png */; };
 		457E0DD519FFF89800E432A0 /* logo_iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 457E0DD319FFF89800E432A0 /* logo_iPad@2x.png */; };
 		457E0DD819FFF8A200E432A0 /* logo_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 457E0DD619FFF8A200E432A0 /* logo_iPhone.png */; };
@@ -197,6 +201,10 @@
 		452D0E2719FEAC1100EEACE0 /* firecommand_splashscreen-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firecommand_splashscreen-iphone.png"; sourceTree = "<group>"; };
 		452D0E2819FEAC1100EEACE0 /* firecommand_splashscreen-iphone_r4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firecommand_splashscreen-iphone_r4.png"; sourceTree = "<group>"; };
 		452D0E2F19FEB2A700EEACE0 /* Minecrafter.Reg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Minecrafter.Reg.ttf; sourceTree = "<group>"; };
+		4563628F1A019E82002919D3 /* tower_40pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_40pt.png; sourceTree = "<group>"; };
+		456362901A019E82002919D3 /* tower_76pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_76pt.png; sourceTree = "<group>"; };
+		456362911A019E82002919D3 /* tower_76pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tower_76pt@2x.png"; sourceTree = "<group>"; };
+		456362951A019EDE002919D3 /* tower_29pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_29pt.png; sourceTree = "<group>"; };
 		457E0DD219FFF89800E432A0 /* logo_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_iPad.png; sourceTree = "<group>"; };
 		457E0DD319FFF89800E432A0 /* logo_iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_iPad@2x.png"; sourceTree = "<group>"; };
 		457E0DD619FFF8A200E432A0 /* logo_iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_iPhone.png; sourceTree = "<group>"; };
@@ -395,6 +403,10 @@
 		452D0E1119FEAA4800EEACE0 /* appicon */ = {
 			isa = PBXGroup;
 			children = (
+				456362951A019EDE002919D3 /* tower_29pt.png */,
+				4563628F1A019E82002919D3 /* tower_40pt.png */,
+				456362901A019E82002919D3 /* tower_76pt.png */,
+				456362911A019E82002919D3 /* tower_76pt@2x.png */,
 				452D0E1319FEAA4800EEACE0 /* tower_1024pt.png */,
 				452D0E1419FEAA4800EEACE0 /* tower_29pt@2x.png */,
 				452D0E1519FEAA4800EEACE0 /* tower_29pt@3x.png */,
@@ -757,6 +769,7 @@
 				4529EF0119FF001F006CFBEE /* sound4.mp3 in Resources */,
 				7C56FF5119BF2A4B00888489 /* sBlock_iPad@2x.png in Resources */,
 				457E0E0C1A001ED800E432A0 /* playButtonSmall.png in Resources */,
+				456362931A019E82002919D3 /* tower_76pt.png in Resources */,
 				45A0CD4519FDBCBC004DACDC /* defBlock_iPad@2x.png in Resources */,
 				45A0CD4419FDBCBC004DACDC /* defBlock_iPad.png in Resources */,
 				452D0E2C19FEAC1100EEACE0 /* firecommand_splashscreen-iphone-HD55-portrait.png in Resources */,
@@ -805,6 +818,7 @@
 				452D0E1C19FEAA4800EEACE0 /* tower_29pt@2x.png in Resources */,
 				45A0CD6F19FDCA0F004DACDC /* block_iPad@2x.png in Resources */,
 				7CA1E8FC195C1CB900A1D8CD /* MainMusic.mp3 in Resources */,
+				456362941A019E82002919D3 /* tower_76pt@2x.png in Resources */,
 				452D0E2E19FEAC1100EEACE0 /* firecommand_splashscreen-iphone_r4.png in Resources */,
 				457E0DF01A0002E900E432A0 /* soundButton_iPhone.png in Resources */,
 				457E0E041A001CA500E432A0 /* shareButton.png in Resources */,
@@ -849,9 +863,11 @@
 				457E0DF11A0002E900E432A0 /* soundButton_iPhone@2x.png in Resources */,
 				45A0CD6819FDC8FE004DACDC /* block2_iPhone.png in Resources */,
 				7C567B5619C58ECC008C6885 /* backButton@2x.png in Resources */,
+				456362961A019EDE002919D3 /* tower_29pt.png in Resources */,
 				457E0E011A0007B400E432A0 /* rateButton_iPhone@2x.png in Resources */,
 				457E0DE019FFFA4800E432A0 /* playButton_iPad.png in Resources */,
 				7CA1E8FF195C1D9200A1D8CD /* rc.png in Resources */,
+				456362921A019E82002919D3 /* tower_40pt.png in Resources */,
 				4529EEFD19FF001F006CFBEE /* brick3.mp3 in Resources */,
 				452D0E1D19FEAA4800EEACE0 /* tower_29pt@3x.png in Resources */,
 				457E0E101A0020A200E432A0 /* gameOverBoard.png in Resources */,
@@ -997,8 +1013,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hicham Chourak (4723ZLSPP6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hicham Chourak (4723ZLSPP6)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1008,8 +1024,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "0d05272a-1a91-4159-b455-d8c1f7048109";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "9a28e9b8-6c35-410e-ab20-53e5fb7dd5a9";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1021,8 +1037,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LEOPROJECTS/LEOPROJECTS-Prefix.pch";
 				INFOPLIST_FILE = "LEOPROJECTS/LEOPROJECTS-Info.plist";
@@ -1034,7 +1050,7 @@
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9a28e9b8-6c35-410e-ab20-53e5fb7dd5a9";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1078,8 +1094,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hicham Chourak (4723ZLSPP6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hicham Chourak (4723ZLSPP6)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1095,9 +1111,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "0d05272a-1a91-4159-b455-d8c1f7048109";
+				PROVISIONING_PROFILE = "9a28e9b8-6c35-410e-ab20-53e5fb7dd5a9";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1118,8 +1134,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hicham Chourak (4723ZLSPP6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hicham Chourak (4723ZLSPP6)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1129,8 +1145,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "0d05272a-1a91-4159-b455-d8c1f7048109";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "9a28e9b8-6c35-410e-ab20-53e5fb7dd5a9";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1142,8 +1158,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LEOPROJECTS/LEOPROJECTS-Prefix.pch";
 				INFOPLIST_FILE = "LEOPROJECTS/LEOPROJECTS-Info.plist";
@@ -1155,7 +1171,7 @@
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9a28e9b8-6c35-410e-ab20-53e5fb7dd5a9";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1167,8 +1183,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LEOPROJECTS/LEOPROJECTS-Prefix.pch";
 				INFOPLIST_FILE = "LEOPROJECTS/LEOPROJECTS-Info.plist";
@@ -1180,7 +1196,7 @@
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9a28e9b8-6c35-410e-ab20-53e5fb7dd5a9";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
