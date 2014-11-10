@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <GameKit/GameKit.h>
+#import "Promo.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property ( strong , nonatomic) GKLocalPlayer *localPlayer;
-
+@property (strong, nonatomic) NSNumber *appID;
+@property (strong, nonatomic) Promo *promo;
 @end

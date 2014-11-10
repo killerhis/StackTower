@@ -20,6 +20,8 @@
 - (IBAction)PlayIt;
 - (IBAction)CloseIt;
 - (IBAction)ShareIt;
+- (IBAction)rateItGameOver;
+@property (weak, nonatomic) IBOutlet UIButton *rateButton;
 @property(nonatomic, strong) GADBannerView *adBanner;
 
 - (GADRequest *)request;

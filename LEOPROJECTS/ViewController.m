@@ -24,6 +24,10 @@ bool firstOne = YES;
 {
     [super viewDidLoad];
     
+    // create Promo ad
+    self.promo = [[Promo alloc] init];
+    [self.promo fetchPromoAdWithController:self];
+    
     // GA
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"StartScene"];
@@ -153,9 +157,16 @@ bool firstOne = YES;
 -(NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
-- (IBAction)rateIt {
-    NSLog(@"rate it");
-    
+
+- (IBAction)rateIt
+{
+
      [[UIApplication sharedApplication] openURL:[NSURL URLWithString:k_OPEN_LINK_FOR_RATING]];
 }
+
+- (void)rateApp
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:k_OPEN_LINK_FOR_RATING]];
+}
+
 @end

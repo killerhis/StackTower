@@ -118,13 +118,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wlk-8v-T1b">
-                                <rect key="frame" x="20" y="159" width="280" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <fontDescription key="fontDescription" name="Minecrafter" family="Minecrafter" pointSize="21"/>
-                                <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0T5-D9-4LE">
                                 <rect key="frame" x="20" y="337" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -159,6 +152,13 @@
                                     <action selector="QuitTheScene" destination="q0V-aT-Pza" eventType="touchUpInside" id="Ldq-wL-K28"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wlk-8v-T1b">
+                                <rect key="frame" x="20" y="159" width="280" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <fontDescription key="fontDescription" name="Minecrafter" family="Minecrafter" pointSize="21"/>
+                                <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -231,6 +231,16 @@
                                             <action selector="ShareIt" destination="xw8-FZ-BfA" eventType="touchUpInside" id="6IN-Zn-aA9"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ezg-eP-Rxn">
+                                        <rect key="frame" x="38" y="25" width="218" height="225"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="ratebut.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="rateItGameOver" destination="xw8-FZ-BfA" eventType="touchUpInside" id="Lyj-Sb-Kde"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -241,6 +251,7 @@
                     <connections>
                         <outlet property="GameOverView" destination="5wW-KN-gDc" id="erj-wu-Afr"/>
                         <outlet property="ScoreText" destination="Mvm-b1-KhP" id="5eU-jP-amF"/>
+                        <outlet property="rateButton" destination="ezg-eP-Rxn" id="x85-yV-QLh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDf-cP-7As" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,6 +271,7 @@
         <image name="playButtonSmall.png" width="46" height="47"/>
         <image name="playButton_iPhone.png" width="156" height="156"/>
         <image name="rateButton_iPhone.png" width="89" height="89"/>
+        <image name="ratebut.png" width="218" height="224"/>
         <image name="restoreButton_iPhone.png" width="110" height="110"/>
         <image name="shareButton.png" width="46" height="47"/>
         <image name="soundButton_iPhone.png" width="80" height="80"/>

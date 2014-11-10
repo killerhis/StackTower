@@ -230,6 +230,16 @@
                                             <action selector="ShareIt" destination="xw8-FZ-BfA" eventType="touchUpInside" id="6IN-Zn-aA9"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eAF-ns-pZ9">
+                                        <rect key="frame" x="38" y="25" width="218" height="225"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" backgroundImage="ratebut.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="rateItGameOver" destination="xw8-FZ-BfA" eventType="touchUpInside" id="vhF-hv-K8h"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -240,6 +250,7 @@
                     <connections>
                         <outlet property="GameOverView" destination="5wW-KN-gDc" id="erj-wu-Afr"/>
                         <outlet property="ScoreText" destination="Mvm-b1-KhP" id="5eU-jP-amF"/>
+                        <outlet property="rateButton" destination="eAF-ns-pZ9" id="eQa-Z2-EJu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDf-cP-7As" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -259,6 +270,7 @@
         <image name="playButtonSmall.png" width="46" height="47"/>
         <image name="playButton_iPad.png" width="312" height="312"/>
         <image name="rateButton_iPad.png" width="178" height="178"/>
+        <image name="ratebut.png" width="436" height="449"/>
         <image name="restoreButton_iPad.png" width="221" height="221"/>
         <image name="shareButton.png" width="46" height="47"/>
         <image name="soundButton_iPad.png" width="160" height="160"/>

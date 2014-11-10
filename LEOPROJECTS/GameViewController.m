@@ -123,6 +123,9 @@ AVAudioPlayer  *MainAudio;
 {
     [super viewDidLoad];
     
+    //init buttons
+    self.rateButton.hidden = YES;
+    
     // GA
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"GameScene"];
@@ -406,6 +409,19 @@ AVAudioPlayer  *MainAudio;
         
         
     }
+    
+    NSInteger gamesPlayed = [[[NSUserDefaults standardUserDefaults] stringForKey:@"gamesPlayed"] intValue];
+    
+    gamesPlayed++;
+    
+    if (gamesPlayed == 5 || gamesPlayed == 30)
+    {
+        self.rateButton.hidden = NO;
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:gamesPlayed] forKey:@"gamesPlayed"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
     
 }
 
@@ -920,6 +936,12 @@ AVAudioPlayer  *MainAudio;
         }
         
     }
+}
+
+- (IBAction)rateItGameOver
+{
+    self.rateButton.hidden = YES;
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:k_OPEN_LINK_FOR_RATING]];
 }
 
 @end

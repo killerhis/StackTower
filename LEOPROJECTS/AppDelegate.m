@@ -11,6 +11,7 @@
 #import "CBNewsfeed.h"
 #import "defined.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
 @interface AppDelegate () <ChartboostDelegate, CBNewsfeedDelegate>
 @end
@@ -20,6 +21,45 @@
 {
     // Override point for customization after application launch.
     
+    [Parse setApplicationId:@"s7uexBlVUx2lq0a19Zh0Qtm0lkpWSTTCJbYLIhg0"
+                  clientKey:@"TPAVcmHtGNxiQCvDFC4eCFrB4Nh1a4TIn5OihMP7"];
+    
+    if (application.applicationState != UIApplicationStateBackground) {
+        // Track an app open here if we launch with a push, unless
+        // "content_available" was used to trigger a background push (introduced
+        // in iOS 7). In that case, we skip tracking here to avoid double
+        // counting the app-open.
+        BOOL preBackgroundPush = ![application respondsToSelector:@selector(backgroundRefreshStatus)];
+        BOOL oldPushHandlerOnly = ![self respondsToSelector:@selector(application:didReceiveRemoteNotification:fetchCompletionHandler:)];
+        BOOL noPushPayload = ![launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (preBackgroundPush || oldPushHandlerOnly || noPushPayload) {
+            [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+        }
+    }
+    
+    // Register for Push Notitications, if running iOS 8
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                        UIUserNotificationTypeBadge |
+                                                        UIUserNotificationTypeSound);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                                 categories:nil];
+        [application registerUserNotificationSettings:settings];
+        [application registerForRemoteNotifications];
+    } else {
+        // Register for Push Notifications before iOS 8
+        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                         UIRemoteNotificationTypeAlert |
+                                                         UIRemoteNotificationTypeSound)];
+    }
+    
+    // Forward Notification info for lauching app
+    
+    NSDictionary *pushDict = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if(pushDict)
+    {
+        [self application:application didReceiveRemoteNotification:pushDict];
+    }
     
     return YES;
 }
@@ -84,8 +124,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Monitor FB App installs
-    [FBSettings setDefaultAppID:@"308502969347316"];
+    // Logs 'install' and 'app activate' App Events.
     [FBAppEvents activateApp];
     
     // GA Setup
@@ -174,7 +213,8 @@
  * Which will return true if a cached interstitial exists for that location
  */
 
-- (void)didCacheInterstitial:(NSString *)location {
+- (void)didCacheInterstitial:(NSString *)location
+{
     NSLog(@"interstitial cached at location %@", location);
 }
 
@@ -190,7 +230,8 @@
  *  -Find this inside the App > Edit page in the Chartboost dashboard
  */
 
-- (void)didFailToLoadMoreApps:(CBLoadError)error {
+- (void)didFailToLoadMoreApps:(CBLoadError)error
+{
     switch(error){
         case CBLoadErrorInternetUnavailable: {
             NSLog(@"Failed to load More Apps, no Internet connection !");
@@ -234,7 +275,8 @@
  * #Pro Tip: Use the delegate method below to immediately re-cache interstitials
  */
 
-- (void)didDismissInterstitial:(NSString *)location {
+- (void)didDismissInterstitial:(NSString *)location
+{
     NSLog(@"dismissed interstitial at location %@", location);
     [[Chartboost sharedChartboost] cacheInterstitial:location];
 }
@@ -251,7 +293,8 @@
  * #Pro Tip: Use the delegate method below to immediately re-cache the more apps page
  */
 
-- (void)didDismissMoreApps {
+- (void)didDismissMoreApps
+{
     NSLog(@"dismissed more apps page, re-caching now");
     [[Chartboost sharedChartboost] cacheMoreApps:CBLocationHomeScreen];
 }
@@ -265,7 +308,41 @@
  * If your app displays interstitials before the first time the user plays the game, implement this method to return NO.
  */
 
-- (BOOL)shouldRequestInterstitialsInFirstSession {
+- (BOOL)shouldRequestInterstitialsInFirstSession
+{
     return YES;
 }
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    currentInstallation.channels = @[ @"global" ];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    //[PFPush handlePush:userInfo];
+    
+    self.appID = [userInfo objectForKey:@"callApp"];
+    self.promo = [[Promo alloc] init];
+    
+    if([application applicationState] == UIApplicationStateInactive)
+    {
+        if (self.appID) {
+            // Analytics of Push openrate
+            [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+            [self.promo showAppStoreID:self.appID withView:self.window];
+        }
+    } else {
+        if (self.appID) {
+            // Analytics of Push openrate
+            [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+            [self.promo showAlertForMessage:userInfo withTitle:@"Stack the Tower" forAppStoreID:self.appID withView:self.window];
+        }
+    }
+}
+
 @end
